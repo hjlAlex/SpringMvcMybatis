@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wabao.dao.GameDao">
+	<select id="getGameById" resultType="Game">
+		select * from game where id = #{id}
+	</select>
+	
+	<insert id="addGame" parameterType="Game" useGeneratedKeys="true" keyColumn="id">
+		insert into game(name,url) values(#{name},#{url})
+	</insert>
+</mapper>
