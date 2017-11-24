@@ -30,6 +30,13 @@
 		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>  
 	</bean>
 	
+	<!-- 配置自动更新表结构信息 -->
+	<bean id="tableSchemaUpdate" class="com.wabao.autocreate.TableSchemaUpdate">
+		<constructor-arg name="autoCreateTableDao" ref="autoCreateTableDao" />
+		<constructor-arg name="entityPath" value="com.wabao.entity" />
+		<constructor-arg name="tableAuto" value="update" />
+		<constructor-arg name="schema" value="${jdbc.schema}" />
+	</bean>
 	<!-- <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean> -->

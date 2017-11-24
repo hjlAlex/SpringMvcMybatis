@@ -3,6 +3,10 @@ package com.wabao.entity;
 
 import org.apache.ibatis.type.Alias;
 
+import com.wabao.autocreate.Column;
+import com.wabao.autocreate.MySqlTypeConstant;
+import com.wabao.autocreate.Table;
+
 /**
  * 
  * 
@@ -10,9 +14,22 @@ import org.apache.ibatis.type.Alias;
  * @author Administrator
  */
 @Alias("User")
+@Table(name = "user")
 public class User {
+	@Column(isNull = false, length = 12, name = "id", type = MySqlTypeConstant.INT)
+	private int id;
+	@Column(isNull = false, length = 255, name = "name", type = MySqlTypeConstant.VARCHAR)
 	private String name;
+	@Column(isNull = false, length = 11, name = "age", type = MySqlTypeConstant.INT)
 	private int age;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
